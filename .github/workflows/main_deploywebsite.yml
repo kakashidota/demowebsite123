@@ -20,5 +20,5 @@ jobs:
         with:
           app-name: 'deploywebsite' # Replace with your app's name
           slot-name: 'Production'
-          publish-profile: ${{ AZUREAPPSERVICE_PUBLISHPROFILE_5076195C934441E096C6BDB661543047 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_5076195C934441E096C6BDB661543047 }}
           package: .
