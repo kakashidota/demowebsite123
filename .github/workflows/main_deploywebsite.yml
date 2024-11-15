@@ -1,0 +1,24 @@
+name: Deploy static files to Azure Web App
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Check out the repository
+      - uses: actions/checkout@v4
+
+      # Step 2: Deploy static files to Azure Web App
+      - name: Deploy to Azure Web App
+        uses: azure/webapps-deploy@v3
+        with:
+          app-name: 'deploywebsite' # Replace with your app's name
+          slot-name: 'Production'
+          publish-profile: ${{ AZUREAPPSERVICE_PUBLISHPROFILE_5076195C934441E096C6BDB661543047 }}
+          package: .
